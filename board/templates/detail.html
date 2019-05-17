@@ -1,0 +1,16 @@
+<script>
+function del(){
+    if (confirm("글을 삭제할까요?")==true){
+        location.href="{% url 'delete' pk=board.pk %}"
+    }
+    return false;
+}
+</script>
+<div class="container">
+    <a href="{% url 'show' %}">뒤로</a>
+    <a href="{% url 'edit' pk=board.pk %}">글 수정하기</a>
+    <h1>제목: {{board.title}}</h1>
+    <p>내용: {{board.body}}</p>
+    <p>등록일: {{board.update_date}}</p>
+    <a href="#" onclick="return del();">삭제</a>
+</div>
